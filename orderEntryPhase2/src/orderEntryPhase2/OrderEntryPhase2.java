@@ -83,7 +83,7 @@ public class OrderEntryPhase2 {
 		
 		System.out.println("\n Order Entry\n");
 		System.out.println("Item Number  \tItem Description  \tItem Price \tQuantity \t Tax % \t Tax");
-		System.out.println("  "+itemNumber+"\t   "+itemDescription+"\t\t   "+itemPrice+"\t\t    "+itemQtyOrdered+"\t\t"+taxPercent+"\t"+totalTax);
+		System.out.println("  "+itemNumber+"\t   "+itemDescription+"\t\t   "+itemPrice+"\t\t    "+itemQtyOrdered+"\t\t "+taxPercent+"\t"+totalTax);
 	}
 	
 	//-----------------------------------------------------------------------
