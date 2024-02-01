@@ -4,11 +4,70 @@
 //
 
 package orderEntryPhase2;
+import java.util.Scanner;
 
 public class OrderEntryPhase2 {
 
+	//vars
+	private String itemDescription;
+	private String itemNumber;
+	private double itemPrice;
+	private int itemQtyOrdered;
+	private double netPrice;
+	private double totalDiscount;
+	private double totalTax;
+	
+	//Gather Inputs
+	public void gatherInputs()
+	{
+		getItemDescription();
+		getItemNumber();
+		getItemPrice();
+	}
+	
+	//Item Description
+	private void getItemDescription()
+	{
+		Scanner itemOBJ = new Scanner(System.in);
+		System.out.println("Enter Item Description: ");
+		
+		itemDescription = itemOBJ.nextLine();
+	}
+	
+	//Item Number
+	private void getItemNumber()
+	{
+		Scanner itemOBJ = new Scanner(System.in);
+		System.out.println("Enter Item Number: ");
+		
+		itemNumber = itemOBJ.nextLine();		
+	}
+	
+	//Item Price
+	private void getItemPrice()
+	{
+		Scanner ipOBJ = new Scanner(System.in);
+		System.out.println("Enter Item Price: ");
+		
+		itemPrice = ipOBJ.nextDouble();
+	}
+	
+	//Print Invoice
+	public void printInvoice()
+	{
+		System.out.println("\n Order Entry\n");
+		System.out.println("Item Number  \tItem Description  \tItem Price");
+		System.out.println("  "+itemNumber+"\t   "+itemDescription+"\t"+itemPrice);
+	}
+	
+	//-----------------------------------------------------------------------
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		OrderEntryPhase2 oep = new OrderEntryPhase2();
+		
+		oep.gatherInputs();
+		oep.printInvoice();
+		
+		System.out.println("\nBye!!!");
 
 	}
 
