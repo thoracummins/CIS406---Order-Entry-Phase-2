@@ -23,6 +23,7 @@ public class OrderEntryPhase2 {
 		getItemDescription();
 		getItemNumber();
 		getItemPrice();
+		getOrderedQuantity();
 	}
 	
 	//Item Description
@@ -52,12 +53,22 @@ public class OrderEntryPhase2 {
 		itemPrice = ipOBJ.nextDouble();
 	}
 	
+	//Quantity Ordered
+	private void getOrderedQuantity()
+	{
+		Scanner oqOBJ = new Scanner(System.in);
+		System.out.println("Enter Quantity Ordered: ");
+		
+		itemQtyOrdered = oqOBJ.nextInt();
+	}
+	
+	
 	//Print Invoice
 	public void printInvoice()
 	{
 		System.out.println("\n Order Entry\n");
-		System.out.println("Item Number  \tItem Description  \tItem Price");
-		System.out.println("  "+itemNumber+"\t   "+itemDescription+"\t"+itemPrice);
+		System.out.println("Item Number  \tItem Description  \tItem Price \tQuantity");
+		System.out.println("  "+itemNumber+"\t   "+itemDescription+"\t\t   "+itemPrice+"\t\t    "+itemQtyOrdered);
 	}
 	
 	//-----------------------------------------------------------------------
