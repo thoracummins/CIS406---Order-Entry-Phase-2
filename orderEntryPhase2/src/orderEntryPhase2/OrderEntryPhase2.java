@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class OrderEntryPhase2 {
 
 	//vars
-	private double discount;
+	private double discountPercent;
 	private String itemDescription;
 	private String itemNumber;
 	private double itemPrice;
@@ -27,6 +27,23 @@ public class OrderEntryPhase2 {
 		getItemPrice();
 		getOrderedQuantity();
 		getTax();
+		getDiscountPercent();
+		
+		//Calculations
+		Double grossPrice = itemPrice*itemQtyOrdered;  // calc cost of item
+		
+		totalTax = grossPrice * taxPercent;  // Calc Total Tax
+		totalDiscount = grossPrice * discountPercent;
+		
+	}
+	
+	//Discount Percent
+	private void getDiscountPercent()
+	{
+		Scanner dpOBJ = new Scanner(System.in);
+		System.out.println("Enter Discount Percent: ");
+		
+		discountPercent = dpOBJ.nextDouble();
 	}
 	
 	//Item Description
@@ -78,12 +95,10 @@ public class OrderEntryPhase2 {
 	//Print Invoice
 	public void printInvoice()
 	{
-		Double grossPrice = itemPrice*itemQtyOrdered;  // calc cost of item
-		totalTax = grossPrice * taxPercent;  // Calc Total Tax
-		
 		System.out.println("\n Order Entry\n");
-		System.out.println("Item Number  \tItem Description  \tItem Price \tQuantity \t Tax % \t Tax");
-		System.out.println("  "+itemNumber+"\t   "+itemDescription+"\t\t   "+itemPrice+"\t\t    "+itemQtyOrdered+"\t\t "+taxPercent+"\t"+totalTax);
+		System.out.println("Item Number  \tItem Description  \tItem Price \tQuantity \t Tax % \t Tax \t Discount % \t Discount");
+		System.out.println("  "+itemNumber+"\t   "+itemDescription+"\t\t   "+itemPrice+"\t\t    "+itemQtyOrdered+"\t\t "+taxPercent+
+								"\t"+totalTax+"\t"+discountPercent+"\n"+totalDiscount);
 	}
 	
 	//-----------------------------------------------------------------------
