@@ -34,6 +34,7 @@ public class OrderEntryPhase2 {
 		
 		totalTax = grossPrice * taxPercent;  // Calc Total Tax
 		totalDiscount = grossPrice * discountPercent;
+		netPrice = (grossPrice + totalTax) - totalDiscount;
 		
 	}
 	
@@ -96,9 +97,10 @@ public class OrderEntryPhase2 {
 	public void printInvoice()
 	{
 		System.out.println("\n Order Entry\n");
-		System.out.println("Item Number  \tItem Description  \tItem Price \tQuantity \t Tax % \t Tax \t Discount % \t Discount");
+		System.out.println("Item Number\tItem Description\tItem Price\tQuantity\tTax %\tTax\tDiscount%\tDiscount\tNet Price");
 		System.out.println("  "+itemNumber+"\t   "+itemDescription+"\t\t   "+itemPrice+"\t\t    "+itemQtyOrdered+"\t\t "+taxPercent+
-								"\t"+totalTax+"\t"+discountPercent+"\n"+totalDiscount);
+								"\t"+String.format("%.2f",totalTax)+"\t   "+discountPercent+"\t\t  "+
+							    String.format("%.2f", totalDiscount)+"\t\t  "+String.format("%.2f",netPrice));
 	}
 	
 	//-----------------------------------------------------------------------
@@ -107,8 +109,7 @@ public class OrderEntryPhase2 {
 		
 		// gather input data
 		oep.gatherInputs();
-		
-		// print invoice
+				// print invoice
 		oep.printInvoice();
 		
 		System.out.println("\nBye!!!");
